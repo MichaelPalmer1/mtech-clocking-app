@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.michaeldpalmer.morrisclocking.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <android.support.v7.widget.ButtonBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/clock_in_btn"
+            android:text="@string/btn_clock_in" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/clock_out_btn"
+            android:text="@string/btn_clock_out" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/status_btn"
+            android:text="@string/btn_status" />
+
+    </android.support.v7.widget.ButtonBarLayout>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/employee_name"
+        android:layout_gravity="center"
+        android:hint="Hello World!"
+        android:textStyle="bold"
+        style="?android:attr/textAppearanceLarge"/>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stateMessage"
+        android:layout_gravity="center"
+        android:text="@string/stateMessage"
+        android:textSize="12pt"/>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hoursWorked"
+        android:layout_gravity="center"
+        android:text="@string/hoursWorked"
+        android:textSize="12pt"/>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hoursRemaining"
+        android:layout_gravity="center"
+        android:text="@string/hoursRemaining"
+        android:textSize="12pt"/>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtHello"
+            android:hint="Hello World!" />
+
+    </ScrollView>
+
+</LinearLayout>
