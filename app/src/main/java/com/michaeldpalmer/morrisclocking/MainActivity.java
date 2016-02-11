@@ -31,7 +31,7 @@ import java.util.regex.Pattern;
 public class MainActivity extends Activity implements Button.OnClickListener {
 
 	private String url = "http://timeips.morristechnology.com/remote/index.php";
-	private TextView tv, employee_name, stateMessage, hoursWorked, hoursRemaining;
+	private TextView employee_name, stateMessage, hoursWorked, hoursRemaining;
 	private Button btnClockIn, btnClockOut;
 	private DownloadDataTask dlTask = null;
 	private String prefUser, prefPass, submitName = "checkStatus", submitValue = "Check Status";
@@ -51,7 +51,6 @@ public class MainActivity extends Activity implements Button.OnClickListener {
 		btnStatus.setOnClickListener(this);
 
 		// TextViews
-		tv = (TextView) findViewById(R.id.txtHello);
 		employee_name = (TextView) findViewById(R.id.employee_name);
 		stateMessage = (TextView) findViewById(R.id.stateMessage);
 		hoursWorked = (TextView) findViewById(R.id.hoursWorked);
@@ -128,7 +127,6 @@ public class MainActivity extends Activity implements Button.OnClickListener {
 			stateMessage.setVisibility(View.GONE);
 			hoursWorked.setVisibility(View.GONE);
 			hoursRemaining.setVisibility(View.GONE);
-			tv.setVisibility(View.GONE);
 			return false;
 		} else {
 			WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
@@ -140,7 +138,6 @@ public class MainActivity extends Activity implements Button.OnClickListener {
 				stateMessage.setVisibility(View.GONE);
 				hoursWorked.setVisibility(View.GONE);
 				hoursRemaining.setVisibility(View.GONE);
-				tv.setVisibility(View.GONE);
 				Toast.makeText(this, "Connect to network \"NOC\"", Toast.LENGTH_LONG).show();
 				return false;
 			}
@@ -149,7 +146,6 @@ public class MainActivity extends Activity implements Button.OnClickListener {
 		stateMessage.setVisibility(View.VISIBLE);
 		hoursWorked.setVisibility(View.VISIBLE);
 		hoursRemaining.setVisibility(View.VISIBLE);
-		tv.setVisibility(View.VISIBLE);
 		return true;
 	}
 
@@ -237,7 +233,6 @@ public class MainActivity extends Activity implements Button.OnClickListener {
 					stateMessage.setText(String.format("Clocked %s at %s", state, time));
 					hoursWorked.setText(getString(R.string.hoursWorked, worked));
 					hoursRemaining.setText(getString(R.string.hoursRemaining, remaining));
-					tv.setText(result);
 				} else {
 					p = Pattern.compile(
 							"<b>([a-z,. -]+)</b>.*(in|out).*worked (.*) and have (.*) remaining.*",
@@ -260,7 +255,6 @@ public class MainActivity extends Activity implements Button.OnClickListener {
 					stateMessage.setText(String.format("Clocked %s", state));
 					hoursWorked.setText(getString(R.string.hoursWorked, worked));
 					hoursRemaining.setText(getString(R.string.hoursRemaining, remaining));
-					tv.setText(result);
 				}
 
 				if (state.equals("out")) {

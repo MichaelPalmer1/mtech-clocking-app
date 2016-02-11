@@ -86,20 +86,4 @@
         android:text="@string/hoursRemaining"
         android:textSize="12pt"/>
 
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="15dp"/>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtHello"
-            android:hint="Hello World!" />
-
-    </ScrollView>
-
 </LinearLayout>
