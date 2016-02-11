@@ -216,7 +216,7 @@ public class MainActivity extends Activity implements Button.OnClickListener {
 				String name = "", state = "", time = "", worked = "", remaining = "";
 				if(submitName.equals("clockIn") || submitName.equals("clockOut")) {
 					p = Pattern.compile(
-							"<b>([a-z,. -]+)</b>.*(in|out) at (\\d+:\\d+ [ap]m).*worked (.*) and have (.*) remaining.*",
+							"<b>([a-z,. -]+)</b>.*(in|out) at ([^:]+:\\d+ [ap]m).*worked (.*) and have (.*) remaining.*",
 							Pattern.CASE_INSENSITIVE
 					);
 					m = p.matcher(result);
