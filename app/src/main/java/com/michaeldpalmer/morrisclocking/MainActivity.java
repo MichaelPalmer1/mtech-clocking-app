@@ -1,11 +1,11 @@
 package com.michaeldpalmer.morrisclocking;
 
 import android.app.Activity;
-import android.content.Context;
+//import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
+//import android.net.wifi.WifiInfo;
+//import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -35,7 +35,7 @@ public class MainActivity extends Activity implements Button.OnClickListener {
 	private Button btnClockIn, btnClockOut;
 	private DownloadDataTask dlTask = null;
 	private String prefUser, prefPass, submitName = "checkStatus", submitValue = "Check Status";
-	private WifiManager wifiMgr;
+//	private WifiManager wifiMgr;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +62,11 @@ public class MainActivity extends Activity implements Button.OnClickListener {
 		prefPass = sharedPref.getString(SettingsActivity.KEY_PREF_CRED_PASS, "");
 
 		// Check wifi
+		/*
 		wifiMgr = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
 		if(!checkWifiStatus())
 			return;
+		*/
 
 		// Get current status
 		if (dlTask != null && dlTask.getStatus() != DownloadDataTask.Status.FINISHED)
@@ -108,16 +110,17 @@ public class MainActivity extends Activity implements Button.OnClickListener {
 				return;
 		}
 
-		if(checkWifiStatus()) {
+//		if(checkWifiStatus()) {
 			Toast.makeText(this, submitValue + "...", Toast.LENGTH_SHORT).show();
 
 			if (dlTask != null && dlTask.getStatus() != DownloadDataTask.Status.FINISHED)
 				dlTask.cancel(true);
 
 			dlTask = (DownloadDataTask) new DownloadDataTask().execute(url);
-		}
+//		}
 	}
 
+	/*
 	private boolean checkWifiStatus() {
 		if(!wifiMgr.isWifiEnabled()) {
 			employee_name.setText(getString(R.string.enableWifi));
@@ -148,6 +151,7 @@ public class MainActivity extends Activity implements Button.OnClickListener {
 		hoursRemaining.setVisibility(View.VISIBLE);
 		return true;
 	}
+	*/
 
 
 	private class DownloadDataTask extends AsyncTask<String, Void, String> {
